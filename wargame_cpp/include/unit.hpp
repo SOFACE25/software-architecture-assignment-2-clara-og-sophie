@@ -13,5 +13,15 @@ public:
 
 private:
     int health;
+    int damage;
+
+    typedef struct UnitVTable
+{
+    int (*get_health)(Unit *self);
+    void (*set_health)(Unit *self, int health);
+    void (*take_hit)(Unit *self, int);
+    void (*attack_target)(Unit *self, Unit *target);
+    void (*heal_target)(Unit *self, Unit *target);
+} UnitVTable;
 };
 #endif // UNIT_HPP

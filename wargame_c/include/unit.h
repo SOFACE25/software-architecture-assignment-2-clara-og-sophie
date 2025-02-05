@@ -11,6 +11,7 @@ typedef struct Unit
 {
     struct UnitVTable *vt;
     int health;
+    int max_health;
 } Unit;
 
 typedef struct UnitVTable
