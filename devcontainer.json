@@ -1,0 +1,26 @@
+{
+    // Name for devcontainer, choose freely
+    "name": "name",
+    "build": {
+        // Name of Dockerfile
+        "dockerfile": "Dockerfile",
+        // Tells that dockerfile is in /.devcontainer
+        "context": "."
+    },
+    // Use bash terminal in devcontainer
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash" 
+    },
+    // Mounts the devcontainer in workspacefolder, i dont even know what this means
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ],
+    // Tells workspacefolder is in /workspace - this has to match target in mounts setting.
+    "workspaceFolder": "/workspace", 
+    // Installs python on the devcontainer.
+    "extensions": [
+        "ms-python.python"
+    ],
+
+    "remoteUser": "vscode"
+}

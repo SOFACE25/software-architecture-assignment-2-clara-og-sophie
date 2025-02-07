@@ -3,6 +3,7 @@
 
 #include "soldier.hpp"
 
+//inherits from soldier and adds a heal function
 class CombatMedic : public Soldier
 {
 public:

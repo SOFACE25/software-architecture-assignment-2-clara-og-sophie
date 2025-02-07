@@ -10,5 +10,10 @@ void Soldier::attack(Unit &target)
 }
 void Soldier::heal(Unit &target)
 {
-    //soldiers dont heal by default
+    target.set_health(target.get_health() + damage);
+}
+
+const int Soldier::getDamage()
+{
+    return damage;
 }
