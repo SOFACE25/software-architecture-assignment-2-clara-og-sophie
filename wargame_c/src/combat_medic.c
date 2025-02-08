@@ -1,20 +1,21 @@
 #include "combat_medic.h"
 
-void combat_medic_heal(Unit *self, Unit *target)
+void combat_medic_heal(Unit *self, Unit *target) //funkiton der helbreder
 {
-    if (unit_get_health(target) < 0)
+    if(unit_get_health(target) < 0)
     {
-        printf("He is gone...");
+        printf("he is gone...");
     }
     else
     {
-        printf("Hang in there!");
-        unit_set_health(target, unit_get_health(target) + 10);
+        unit_set_health(target, unit_get_health(target));  
     }
 }
 
 void make_combat_medic(CombatMedic *self, int health, int damage)
 {
-    make_soldier(&self->inherited, health, damage);
-    self->inherited.inherited.vt->heal_target = combat_medic_heal;
+    make_soldier(&self->inherited, health, damage); //initialiserer combatmedic som soldier
+    self->inherited.inherited.vt->heal_target = combat_medic_heal; //overrider heal_target fra soldier
 }
+
+

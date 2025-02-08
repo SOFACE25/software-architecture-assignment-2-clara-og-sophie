@@ -1,6 +1,6 @@
 #ifndef UNIT_HPP
 #define UNIT_HPP
-class Unit
+class Unit //base class for all units
 {
 public:
     Unit(int health);

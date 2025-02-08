@@ -9,7 +9,7 @@ const int Unit::get_health()
 }
 void Unit::set_health(int health)
 {
-    this->health = health;
+    this->health = health;//ensure health doesnt go below zero
 }
 void Unit::take_hit(int damage)
 {

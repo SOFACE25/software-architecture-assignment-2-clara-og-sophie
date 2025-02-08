@@ -1,5 +1,6 @@
 #include "unit.h"
 
+//private unit funktioner
 int _unit_get_health(Unit *self)
 {
     return self->health;
@@ -18,13 +19,13 @@ void _unit_take_hit(Unit *self, int damage)
 void _unit_attack_target(Unit *self, Unit *target)
 {
     printf("'attack' method is not implemented for 'Unit' class");
-    assert(0);
+    assert(0); //skal ikke kaldes
 }
 
 void _unit_heal_target(Unit *self, Unit *target)
 {
     printf("'heal' method is not implemented for 'Unit' class");
-    assert(0);
+    assert(0); //skal ikke kaldes
 }
 
 // virtual methods
@@ -53,9 +54,18 @@ void unit_heal_target(Unit *self, Unit *target)
     self->vt->heal_target(self, target);
 }
 
+
 void make_unit(Unit *self, int health)
 {
-    static UnitVTable vt = {_unit_get_health, _unit_set_health, _unit_take_hit, _unit_attack_target, _unit_heal_target};
+    static UnitVTable vt = {
+        _unit_get_health, 
+        _unit_set_health, 
+        _unit_take_hit, 
+        _unit_attack_target, 
+        _unit_heal_target
+    };
+
     self->vt = &vt;
     self->health = health;
+    self->max_health = health;
 }

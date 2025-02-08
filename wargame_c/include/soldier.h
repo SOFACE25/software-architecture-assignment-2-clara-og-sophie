@@ -9,6 +9,7 @@ typedef struct Soldier
     int damage;
 } Soldier;
 
+//initialiserer soldiers sundhed og skade
 void make_soldier(Soldier *self, int health, int damage);
 
 #endif // SOLDIER_H
